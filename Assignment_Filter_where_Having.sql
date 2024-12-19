@@ -73,10 +73,7 @@ SELECT
 ChannelType, AVG(RevenueLastMonth) AS AverageRevenuePerInfluencer
 FROM youtube
 GROUP BY ChannelType
-HAVING AVG(RevenueLastMonth)>
-(0.5 * (SELECT MAX(RevenueLastMonth) FROM youtube)
-);
-
+HAVING AVG(RevenueLastMonth)>0.5 * MAX(RevenueLastMonth);
 
 • Q10. Identify ChannelType groups where the total views (SUM(AvgViewsPerVideo))
 contribute more than 10% of the overall views across all influencers in the dataset.
